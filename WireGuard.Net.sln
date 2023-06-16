@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WireGuard.Net", "WireGuard.Net\WireGuard.Net.csproj", "{AD9A4696-681A-493D-B173-E5ABAF133EEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WireGuard.Net.Example", "WireGuard.Net.Example\WireGuard.Net.Example.csproj", "{171C61F5-44F8-4773-9293-503931ADE514}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD9A4696-681A-493D-B173-E5ABAF133EEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD9A4696-681A-493D-B173-E5ABAF133EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD9A4696-681A-493D-B173-E5ABAF133EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD9A4696-681A-493D-B173-E5ABAF133EEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{171C61F5-44F8-4773-9293-503931ADE514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{171C61F5-44F8-4773-9293-503931ADE514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{171C61F5-44F8-4773-9293-503931ADE514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{171C61F5-44F8-4773-9293-503931ADE514}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
