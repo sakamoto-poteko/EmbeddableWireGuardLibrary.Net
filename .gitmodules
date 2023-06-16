@@ -1,0 +1,3 @@
+[submodule "WireGuard.Native/wireguard-tools"]
+	path = WireGuard.Native/wireguard-tools
+	url = https://git.zx2c4.com/wireguard-tools
