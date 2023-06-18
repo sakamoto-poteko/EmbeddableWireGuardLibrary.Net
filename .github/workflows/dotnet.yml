@@ -33,7 +33,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: libwireguard
-        path: ./build-${{matrix.target}}/libwireguard.so
+        path: ./build-*/libwireguard.so
     # - name: Setup .NET
     #   uses: actions/setup-dotnet@v3
     #   with:
