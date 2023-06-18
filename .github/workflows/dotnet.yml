@@ -22,7 +22,7 @@ jobs:
       with:
         submodules: recursive
     - name: create build folder
-      run: mkdir build-native
+      run: mkdir build-${{matrix.target}}
     - name: cmake config
       run: cmake -DCMAKE_BUILD_TYPE=Release ../WireGuard.Native
       working-directory: ./build-${{matrix.target}}
