@@ -11,9 +11,12 @@ on:
 
 jobs:
   build-native:
+    strategy:
+      matrix:
+        target: [ linux-x64, linux-x86, linux-arm64, linux-armv7 ]
     runs-on: ubuntu-latest
     container:
-      image: dockcross/linux-arm64
+      image: dockcross/${{matrix.target}}
     steps:
     - uses: actions/checkout@v3
       with:
