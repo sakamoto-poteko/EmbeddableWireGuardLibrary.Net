@@ -11,23 +11,25 @@ on:
 
 jobs:
   build-native:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     container:
-      image: debian
+      image: dockcross/linux-arm64
     steps:
-    - name: Install prereqs
-      run: apt-get install -y build-essential cmake
     - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    - name: cmake config
+      run: cmake -DCMAKE_BUILD_TYPE=Release
+    - name: build
+      run: cmake --build build --parallel
+    # - name: Setup .NET
+    #   uses: actions/setup-dotnet@v3
+    #   with:
+    #     dotnet-version: 6.0.x
+    # - name: Restore dependencies
+    #   run: dotnet restore
+    # - name: Build
+    #   run: dotnet build --no-restore
+    # - name: Test
+    #   run: dotnet test --no-build --verbosity normal
   # build-native2:
   #   strategy:
   #     matrix:
