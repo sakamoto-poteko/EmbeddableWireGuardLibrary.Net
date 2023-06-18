@@ -10,10 +10,12 @@ on:
     branches: [ "master", "pipeline" ]
 
 jobs:
-  build:
-
+  build-native:
     runs-on: ubuntu-latest
-
+    container:
+      image: mcr.microsoft.com/dotnet/sdk:7.0
+      env:
+        NODE_ENV: development
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -26,3 +28,30 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+  # build-native2:
+  #   strategy:
+  #     matrix:
+  #       runtime: [ linux-x64, linux-arm64, linux-arm ]
+  #       include:
+  #       - runtime: linux-x64
+  #         os: ubuntu-latest
+  #       - runtime: linux-arm64
+  #         os: ubuntu-latest
+  #       - runtime: linux-arm
+  #         os: ubuntu-latest
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     -
+  #       name: Checkout
+  #       uses: actions/checkout@v3
+  #     -
+  #       name: Set up QEMU
+  #       uses: docker/setup-qemu-action@v2
+  #     -
+  #       name: Set up Docker Buildx
+  #       uses: docker/setup-buildx-action@v2
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         submodules: recursive
+  #     - name: Configure and build native
+  #       uses: threeal/cmake-action@latest 
