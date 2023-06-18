@@ -29,6 +29,11 @@ jobs:
     - name: build
       run: cmake --build . --parallel
       working-directory: ./build-native
+    - name: Archive .so
+      uses: actions/upload-artifact@v3
+      with:
+        name: libwireguard-${{matrix.target}}
+        path: ./build/libwireguard.so
     # - name: Setup .NET
     #   uses: actions/setup-dotnet@v3
     #   with:
