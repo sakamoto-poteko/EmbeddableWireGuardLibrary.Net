@@ -25,15 +25,15 @@ jobs:
       run: mkdir build-native
     - name: cmake config
       run: cmake -DCMAKE_BUILD_TYPE=Release ../WireGuard.Native
-      working-directory: ./build-native
+      working-directory: ./build-${{matrix.target}}
     - name: build
       run: cmake --build . --parallel
-      working-directory: ./build-native
+      working-directory: ./build-${{matrix.target}}
     - name: Archive .so
       uses: actions/upload-artifact@v3
       with:
-        name: libwireguard-${{matrix.target}}
-        path: ./build/libwireguard.so
+        name: libwireguard
+        path: ./build-${{matrix.target}}/libwireguard.so
     # - name: Setup .NET
     #   uses: actions/setup-dotnet@v3
     #   with:
