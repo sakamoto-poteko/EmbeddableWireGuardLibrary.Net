@@ -13,10 +13,10 @@ jobs:
   build-native:
     runs-on: self-hosted
     container:
-      image: mcr.microsoft.com/dotnet/sdk:7.0.304-bullseye-slim-arm64v8
-      env:
-        NODE_ENV: development
+      image: debian
     steps:
+    - name: Install prereqs
+      run: sudo apt-get install -y build-essential cmake
     - uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
