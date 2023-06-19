@@ -7,7 +7,9 @@ A .NET wrapper for [embeddable-wg-library](https://git.zx2c4.com/wireguard-tools
 Install the package from nuget.org: `Install-Package Poteko.EmbeddableWireGuard.Net`, and follow the same usage as in the [C library](https://git.zx2c4.com/wireguard-tools/tree/contrib/embeddable-wg-library/test.c).
 
 ```c#
+using System.Net;
 using EmbeddableWireGuard.Net;
+
 WireGuardFunctions.AddDevice("wgtest");
 var wgdev = new WireGuardDevice
 {
@@ -36,7 +38,7 @@ var wgdev = new WireGuardDevice
     },
 };
 WireGuardFunctions.SetWireGuardDevice(wgdev);
-var devices = WireGuardFunctions.ListDeviceNames().Select(name => GetWireGuardDevice(name)).ToList();
+var devices = WireGuardFunctions.ListDeviceNames().Select(name => WireGuardFunctions.GetWireGuardDevice(name)).ToList();
 WireGuardFunctions.DeleteDevice("wgtest");
 ```
 
