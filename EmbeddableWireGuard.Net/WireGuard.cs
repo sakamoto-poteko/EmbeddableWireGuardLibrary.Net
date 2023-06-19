@@ -235,6 +235,24 @@ namespace EmbeddableWireGuard.Net
             }
         }
 
+        public static void AddDevice(string deviceName)
+        {
+            int rc = NativeWireGuardFunctions.wg_add_device(deviceName);
+            if (rc < 0)
+            {
+                throw new WireGuardException(-rc);
+            }
+        }
+
+        public static void DeleteDevice(string deviceName)
+        {
+            int rc = NativeWireGuardFunctions.wg_del_device(deviceName);
+            if (rc < 0)
+            {
+                throw new WireGuardException(-rc);
+            }
+        }
+
 
         public static string ConvertKeyToBase64(byte[] key)
         {
