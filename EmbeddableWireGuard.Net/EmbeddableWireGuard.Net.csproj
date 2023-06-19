@@ -1,20 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <RootNamespace>EmbeddableWireGuard.Net</RootNamespace>
     </PropertyGroup>
     <PropertyGroup>
-        <PackageId>EmbeddableWireGuard.Net</PackageId>
+        <PackageId>Poteko.EmbeddableWireGuard.Net</PackageId>
         <Version>0.9.0</Version>
         <Authors>Afa Cheng</Authors>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>WireGuard</PackageTags>
+        <Description>
+            This library enables the interop with native wireguard library.
+        </Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
     </PropertyGroup>
     <ItemGroup>
         <None Include="..\README.md" Pack="true" PackagePath="\"/>
         <Content Include="..\build-native\linux-arm64\libwireguard.so" CopyToOutputDirectory="IfNewer" Pack="true" PackagePath="runtimes\linux-arm64\native\libwireguard.so" />
         <Content Include="..\build-native\linux-armv7\libwireguard.so" CopyToOutputDirectory="IfNewer" Pack="true" PackagePath="runtimes\linux-arm\native\libwireguard.so" />
         <Content Include="..\build-native\linux-x64\libwireguard.so" CopyToOutputDirectory="IfNewer" Pack="true" PackagePath="runtimes\linux-x64\native\libwireguard.so" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
     </ItemGroup>
 </Project>
