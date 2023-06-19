@@ -35,6 +35,7 @@ jobs:
         name: libwireguard
         path: ./build-*/libwireguard.so
   build-dotnet:
+    needs: build-native
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
