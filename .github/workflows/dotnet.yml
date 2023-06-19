@@ -22,20 +22,19 @@ jobs:
       with:
         submodules: recursive
     - name: create build folder
-      run: mkdir -p build/${{matrix.target}}
+      run: mkdir -p ${{matrix.target}}
     - name: cmake config
-      run: cmake -DCMAKE_BUILD_TYPE=Release ../../WireGuard.Native
-      working-directory: ./build/${{matrix.target}}
+      run: cmake -DCMAKE_BUILD_TYPE=Release ../WireGuard.Native
+      working-directory: ./${{matrix.target}}
     - name: build
       run: cmake --build . --parallel
-      working-directory: ./build/${{matrix.target}}
+      working-directory: ./${{matrix.target}}
     - name: Archive .so
       uses: actions/upload-artifact@v3
       with:
         name: libwireguard
         path: ./*/libwireguard.so
         if-no-files-found: error
-        working-directory: ./build
   build-dotnet:
     needs: build-native
     runs-on: ubuntu-latest
