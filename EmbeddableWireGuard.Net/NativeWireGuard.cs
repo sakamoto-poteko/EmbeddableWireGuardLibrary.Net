@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 
-namespace WireGuard.Net
+namespace EmbeddableWireGuard.Net
 {
     internal static class Constants
     {

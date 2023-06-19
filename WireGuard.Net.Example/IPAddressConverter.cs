@@ -1,7 +1,7 @@
 using System.Net;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using WireGuard.Net;
+using EmbeddableWireGuard.Net;
 
 public class IPAddressJsonConverter : JsonConverter<IPAddress>
 {

@@ -1,4 +1,4 @@
-namespace WireGuard.Net
+namespace EmbeddableWireGuard.Net
 {
     [System.Serializable]
     public class WireGuardException : System.Exception

@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <RootNamespace>EmbeddableWireGuard.Net</RootNamespace>
+    </PropertyGroup>
+    <PropertyGroup>
+        <PackageId>EmbeddableWireGuard.Net</PackageId>
+        <Version>0.9.0</Version>
+        <Authors>Afa Cheng</Authors>
+    </PropertyGroup>
+</Project>
