@@ -45,16 +45,6 @@ jobs:
         with:
           name: libwireguard
           path: ./build-native
-      - name: Copy library files
-        run: |
-          ls */*
-      #     mkdir build-native
-      #     mkdir build-native/linux-arm64
-      #     mv build-linux-arm64/libwireguard.so build-native/linux-arm64
-      #     mkdir build-native/linux-arm
-      #     mv build-linux-armv7/libwireguard.so build-native/linux-arm
-      #     mkdir build-native/linux-x64
-      #     mv build-linux-x64/libwireguard.so build-native/linux-x64
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
@@ -63,5 +53,13 @@ jobs:
         run: dotnet restore
       - name: Build release
         run: dotnet build --no-restore --configuration Release
-      # - name: Test
-      #   run: dotnet test --no-build --verbosity normal
+      - name: Build nuget package
+        run: dotnet pack EmbeddableWireGuard.Net --configuration=Release -o release
+      - name: Move 
+        run: mv release/*.nupkg .
+      - name: Store nupkg
+        uses: actions/upload-artifact@v3
+        with:
+          name: EmbeddedableWireGuard.Net
+          path: ./*.nupkg
+          if-no-files-found: error
