@@ -44,9 +44,9 @@ jobs:
         with:
           name: libwireguard
           path: ./build-native
-      # - name: Copy library files
-      #   run: |
-      #     ls
+      - name: Copy library files
+        run: |
+          ls */*
       #     mkdir build-native
       #     mkdir build-native/linux-arm64
       #     mv build-linux-arm64/libwireguard.so build-native/linux-arm64
