@@ -19,6 +19,7 @@ foreach (var wg in names)
     Console.WriteLine(JsonSerializer.Serialize(dev, opt));
 }
 
+WireGuardFunctions.AddDevice("wgtest");
 var wgdev = new WireGuardDevice
 {
     Name = "wgtest",
@@ -85,3 +86,4 @@ Console.WriteLine(pskB64);
 
 Console.WriteLine($"priv same: {Enumerable.SequenceEqual(privKey, priv)}, pub same: {Enumerable.SequenceEqual(pubKey, pub)}");
 
+WireGuardFunctions.DeleteDevice("wgtest");
