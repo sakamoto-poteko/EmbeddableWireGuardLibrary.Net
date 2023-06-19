@@ -62,3 +62,18 @@ jobs:
           name: EmbeddedableWireGuard.Net
           path: ./*.nupkg
           if-no-files-found: error
+  push-nuget:
+    needs: build-dotnet
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+      - uses: actions/download-artifact@v3
+        with:
+          name: EmbeddedableWireGuard.Net
+          path: ./nuget
+      - name: Push package to nuget
+        run: dotnet nuget push nuget/*.nupkg -k ${{secrets.NUGET_KEY}} -s https://api.nuget.org/v3/index.json
