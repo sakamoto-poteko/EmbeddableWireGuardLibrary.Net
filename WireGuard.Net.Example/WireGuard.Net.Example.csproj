@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\WireGuard.Net\WireGuard.Net.csproj" />
+    <ProjectReference Include="..\EmbeddableWireGuard.Net\EmbeddableWireGuard.Net.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -9,6 +9,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>EmbeddableWireGuard.Net.Example</RootNamespace>
   </PropertyGroup>
 
 </Project>

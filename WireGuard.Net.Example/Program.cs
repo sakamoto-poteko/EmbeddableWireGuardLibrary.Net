@@ -1,8 +1,7 @@
 ﻿using System.Net;
-using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using WireGuard.Net;
+using EmbeddableWireGuard.Net;
 
 
 var names = WireGuardFunctions.ListDeviceNames();

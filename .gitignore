@@ -17,5 +17,7 @@ CTestTestfile.cmake
 _deps
 
 build/
+.idea/
 
 .vscode
+release/
