@@ -1,0 +1,64 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  push:
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build-native:
+    strategy:
+      matrix:
+        target: [ linux-x64, linux-x86, linux-arm64, linux-armv7 ]
+    runs-on: ubuntu-latest
+    container:
+      image: dockcross/${{matrix.target}}
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - name: create build folder
+      run: mkdir -p ${{matrix.target}}
+    - name: cmake config
+      run: cmake -DCMAKE_BUILD_TYPE=Release ../WireGuard.Native
+      working-directory: ./${{matrix.target}}
+    - name: build
+      run: cmake --build . --parallel
+      working-directory: ./${{matrix.target}}
+    - name: Archive .so
+      uses: actions/upload-artifact@v3
+      with:
+        name: libwireguard
+        path: ./*/libwireguard.so
+        if-no-files-found: error
+  build-dotnet:
+    needs: build-native
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: libwireguard
+          path: ./build-native
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build release
+        run: dotnet build --no-restore --configuration Release
+      - name: Build nuget package
+        run: dotnet pack EmbeddableWireGuard.Net --configuration=Release -o release
+      - name: Move 
+        run: mv release/*.nupkg .
+      - name: Store nupkg
+        uses: actions/upload-artifact@v3
+        with:
+          name: EmbeddedableWireGuard.Net
+          path: ./*.nupkg
+          if-no-files-found: error

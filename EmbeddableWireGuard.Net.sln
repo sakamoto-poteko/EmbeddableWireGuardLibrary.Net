@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WireGuard.Net", "WireGuard.Net\WireGuard.Net.csproj", "{AD9A4696-681A-493D-B173-E5ABAF133EEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmbeddableWireGuard.Net", "EmbeddableWireGuard.Net\EmbeddableWireGuard.Net.csproj", "{AD9A4696-681A-493D-B173-E5ABAF133EEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WireGuard.Net.Example", "WireGuard.Net.Example\WireGuard.Net.Example.csproj", "{171C61F5-44F8-4773-9293-503931ADE514}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmbeddableWireGuard.Net.Example", "EmbeddableWireGuard.Net.Example\EmbeddableWireGuard.Net.Example.csproj", "{171C61F5-44F8-4773-9293-503931ADE514}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

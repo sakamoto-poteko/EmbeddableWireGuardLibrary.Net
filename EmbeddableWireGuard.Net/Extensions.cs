@@ -1,4 +1,4 @@
-namespace WireGuard.Net
+namespace EmbeddableWireGuard.Net
 {
     public static class Extensions
     {
