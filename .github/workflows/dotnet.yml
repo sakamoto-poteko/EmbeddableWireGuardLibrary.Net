@@ -40,19 +40,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: libwireguard
-      - name: Copy library files
-        run: |
-          ls
-          mkdir build-native
-          mkdir build-native/linux-arm64
-          mv build-linux-arm64/libwireguard.so build-native/linux-arm64
-          mkdir build-native/linux-arm
-          mv build-linux-armv7/libwireguard.so build-native/linux-arm
-          mkdir build-native/linux-x64
-          mv build-linux-x64/libwireguard.so build-native/linux-x64
+          path: ./build-native
+      # - name: Copy library files
+      #   run: |
+      #     ls
+      #     mkdir build-native
+      #     mkdir build-native/linux-arm64
+      #     mv build-linux-arm64/libwireguard.so build-native/linux-arm64
+      #     mkdir build-native/linux-arm
+      #     mv build-linux-armv7/libwireguard.so build-native/linux-arm
+      #     mkdir build-native/linux-x64
+      #     mv build-linux-x64/libwireguard.so build-native/linux-x64
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
@@ -61,8 +62,5 @@ jobs:
         run: dotnet restore
       - name: Build release
         run: dotnet build --no-restore --configuration Release
-      - uses: actions/download-artifact@v2
-        with:
-          name: libwireguard
       # - name: Test
       #   run: dotnet test --no-build --verbosity normal
