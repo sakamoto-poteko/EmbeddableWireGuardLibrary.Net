@@ -9,5 +9,12 @@
         <PackageId>EmbeddableWireGuard.Net</PackageId>
         <Version>0.9.0</Version>
         <Authors>Afa Cheng</Authors>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
+        <Content Include="..\build-native\build-linux-arm64\libwireguard.so" CopyToOutputDirectory="Always" Pack="true" PackagePath="runtimes\linux-x64\native\libwireguard.so" />
+        <Content Include="runtimes\linux-arm\native\*" CopyToOutputDirectory="Always" Pack="true" PackagePath="runtimes\linux-arm\native" />
+        <Content Include="runtimes\linux-arm64\native\*" CopyToOutputDirectory="Always" Pack="true" PackagePath="runtimes\linux-arm64\native" />
+    </ItemGroup>
 </Project>
