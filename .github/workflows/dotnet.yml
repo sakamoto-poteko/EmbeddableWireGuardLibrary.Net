@@ -5,9 +5,8 @@ name: .NET
 
 on:
   push:
-    branches: [ "master", "pipeline" ]
   pull_request:
-    branches: [ "master", "pipeline" ]
+    branches: [ "master" ]
 
 jobs:
   build-native:
