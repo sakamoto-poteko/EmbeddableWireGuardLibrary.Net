@@ -14,7 +14,7 @@
     <ItemGroup>
         <None Include="..\README.md" Pack="true" PackagePath="\"/>
         <Content Include="..\build-native\linux-arm64\libwireguard.so" CopyToOutputDirectory="Always" Pack="true" PackagePath="runtimes\linux-arm64\native\libwireguard.so" />
-        <Content Include="..\build-native\linux-arm\libwireguard.so" CopyToOutputDirectory="Always" Pack="true" PackagePath="runtimes\linux-arm\native\libwireguard.so" />
+        <Content Include="..\build-native\linux-armv7\libwireguard.so" CopyToOutputDirectory="Always" Pack="true" PackagePath="runtimes\linux-arm\native\libwireguard.so" />
         <Content Include="..\build-native\linux-x64\libwireguard.so" CopyToOutputDirectory="Always" Pack="true" PackagePath="runtimes\linux-x64\native\libwireguard.so" />
     </ItemGroup>
 </Project>
